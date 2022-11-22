@@ -68,9 +68,9 @@ void imprimir_processos(Lista * lista) {
         printf("entrada: %d\n", node -> processo.entrada);
         printf("prio_est: %d - prio_din: %d\n", node -> processo.prio_est, node -> processo.prio_din);
         if (node -> processo.status == true)
-            printf("Concluido");
+            printf("STATUS: Concluido\n\n");
         else
-            printf("Pendente");
+            printf("STATUS: Pendente\n\n");
 
         node = node -> prox;
     }

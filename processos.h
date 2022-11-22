@@ -1,3 +1,5 @@
+#include <stdbool.h>
+
 typedef struct processo {
     int pid;
     int temp_exec;
