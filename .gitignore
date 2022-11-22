@@ -1,0 +1,5 @@
+main.o
+processo.o
+Makefile.win
+gerenciador.exe
+gerenciador.layout
