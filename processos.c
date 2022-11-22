@@ -24,9 +24,13 @@ void inserir_processo(Lista * lista, Processo * processo) {
         lista -> ult = node;
     }
 
-    node -> processo.entrada = processo -> entrada;
+    node -> processo.pid = 100 + rand() % 900;
     node -> processo.temp_exec = processo -> temp_exec;
+    node -> processo.temp_remain = 0;
+    node -> processo.entrada = processo -> entrada;
     node -> processo.prio_est = processo -> prio_est;
+    node -> processo.prio_din = 0;
+    node -> processo.status = false;
     node -> prox = NULL;
 }
 
@@ -42,11 +46,8 @@ void ler_arquivo(Lista * lista) {
     printf("quantidade: %d", lista -> qtd);
     for (i = 0; i < lista -> qtd; i++) {
         fscanf(file, "%d", & processo.entrada);
-        printf("entrada: %d", processo.entrada);
         fscanf(file, "%d", & processo.temp_exec);
-        printf("temp: %d", processo.temp_exec);
         fscanf(file, "%d", & processo.prio_est);
-        printf("prio: %d", processo.prio_est);
         inserir_processo(lista, & processo);
     }
 
@@ -62,10 +63,15 @@ void imprimir_processos(Lista * lista) {
 
     int i = 0;
     for (i = 0; i < 7; i++) {
-        printf("Processo 0%d:\n", i + 1);
+        printf("Processo 0%d - PID: %d\n", i + 1, node -> processo.pid);
+        printf("temp_exec: %d - temp_remain: %d\n", node -> processo.temp_exec, node -> processo.temp_remain);
         printf("entrada: %d\n", node -> processo.entrada);
-        printf("temp: %d\n", node -> processo.temp_exec);
-        printf("prio: %d\n", node -> processo.prio_est);
+        printf("prio_est: %d - prio_din: %d\n", node -> processo.prio_est, node -> processo.prio_din);
+        if (node -> processo.status == true)
+            printf("Concluido");
+        else
+            printf("Pendente");
+
         node = node -> prox;
     }
     getchar();

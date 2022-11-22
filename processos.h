@@ -5,6 +5,7 @@ typedef struct processo {
     int entrada;
     int prio_est;
     int prio_din;
+    bool status;
 } Processo;
 
 typedef struct node {
