@@ -91,10 +91,9 @@ Node * varrer_processos(Lista * lista, int temp) {
 }
 
 void libera_processo(Lista * lista, Node * node) {
-    if (node == lista -> prim) {
+    if (node == lista -> prim)
         lista -> prim = node -> prox;
-        lista -> ult = node -> prox;
-    } else node -> ant -> prox = node -> prox;
+    else node -> ant -> prox = node -> prox;
 
     node = NULL;
     free(node);
