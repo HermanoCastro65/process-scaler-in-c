@@ -19,7 +19,7 @@ int main(int argc, char * argv[]) {
         printf("\nTEMPO DE EXEC TOTAL: %d\n", temp);
         printf("\nPROCESSOS NA LISTA : %d\n", lista -> qtd);
         executar_processos(lista, varrer_processos(lista, temp));
-        Sleep(10);
+        Sleep(1000);
         temp++;
     }
 
